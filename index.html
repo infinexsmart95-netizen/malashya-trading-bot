@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALASHYA TRADING BOT — CORE ENGINE</title>
+    <!-- Firebase Deployment Infrastructure Core Core Module SDK Integration Layer -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <style>
+        /* ------------------------------------------------------------------------- */
+        /* --- 🎨 MASTER SYSTEM STRUCTURAL CORE STYLE VARIABLES & ROOT ENGINE ----- */
+        /* ------------------------------------------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0a0c10 0%, #030406 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* 💸 FLOATING CAPITAL ASSETS GREEN DOLLAR AMBIENCE DRIVER ENGINE */
+        .ambient-asset-environment {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .cascading-dollar-element {
+            position: absolute;
+            color: rgba(0, 255, 170, 0.22);
+            font-size: 28px;
+            font-weight: 800;
+            text-shadow: 0 0 12px rgba(0, 255, 170, 0.5);
+            user-select: none;
+            animation: vectorFallDown linear infinite;
+        }
+
+        @keyframes vectorFallDown {
+            0% {
+                transform: translateY(-110vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* High-Intensity Dynamic Screen Shock Flash Wave Alerts on Execution */
+        .flash-bullish-shocker { animation: triggerEldritchGreenFlash 2s cubic-bezier(0.19, 1, 0.22, 1); }
+        .flash-bearish-shocker { animation: triggerVampireRedFlash 2s cubic-bezier(0.19, 1, 0.22, 1); }
+
+        @keyframes triggerEldritchGreenFlash { 0% { background-color: rgba(0, 255, 170, 0.25); filter: contrast(1.3); } 100% { background-color: transparent; } }
+        @keyframes triggerVampireRedFlash { 0% { background-color: rgba(255, 51, 102, 0.28); filter: contrast(1.3); } 100% { background-color: transparent; } }
+
+
+        /* ------------------------------------------------------------------------- */
+        /* --- 🔐 HORROR UNDERGROUND SECURITY GATEWAY LOCK SCREEN SYSTEM ---------- */
+        /* ------------------------------------------------------------------------- */
+        #securityScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #0f0303 0%, #020000 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: all 1.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .horror-gatekeeper-container {
+            background: linear-gradient(145deg, #0d0404 0%, #040101 100%);
+            border: 2px dashed #9e1b1b;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 420px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(158, 27, 27, 0.45), inset 0 0 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+            animation: layoutHeavyDrift 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        .horror-brand-header {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .horror-crimson-num {
+            background: linear-gradient(135deg, #ff3333 0%, #9e1b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            font-size: 55px;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+            margin-bottom: 5px;
+        }
+
+        .horror-subtext-line {
+            display: block;
+            font-size: 11px;
+            color: #ff3333;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(255, 51, 51, 0.3);
+            border-bottom: 1px solid rgba(255, 51, 51, 0.3);
+            padding: 6px 0;
+        }
+
+        /* Heavy Custom Hardware Key Display Button */
+        .horror-key-box {
+            background: linear-gradient(180deg, #120202 0%, #050000 100%);
+            border: 2px solid #ff3333;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.15), inset 0 2px 5px rgba(0,0,0,0.8);
+            border-radius: 8px;
+            padding: 18px;
+            font-size: 14px;
+            color: #ff5555;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .horror-key-box:hover { 
+            background: #1a0404; 
+            border-color: #ff6666;
+            box-shadow: 0 0 25px rgba(255, 51, 51, 0.4), inset 0 0 10px rgba(255,0,0,0.3);
+            transform: scale(1.02);
+        }
+        .horror-key-box:active { transform: scale(0.98); }
+
+        .horror-status-label {
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #ff0000;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            animation: horrorPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes horrorPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; text-shadow: 0 0 30px #ff0000; } }
+
+        .horror-desc-para { font-size: 12px; color: #8f94a0; line-height: 1.7; margin-bottom: 35px; font-family: monospace; }
+
+        /* Heavy Authorization Restraint Control Action Trigger */
+        .btn-horror-action {
+            width: 100%; 
+            background: linear-gradient(180deg, #3a0606 0%, #150202 100%); 
+            border: 2px solid #9e1b1b; 
+            color: #ff8888; 
+            padding: 18px; 
+            font-size: 13px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 2.5px; 
+            border-radius: 8px;
+            cursor: pointer; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .btn-horror-action:hover { 
+            background: linear-gradient(180deg, #ff2222 0%, #9e1b1b 100%); 
+            color: #ffffff; 
+            border-color: #ff6666;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.5); 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            transform: translateY(-2px);
+        }
+        .btn-horror-action:active { transform: translateY(1px); }
+        .btn-horror-action.active-state { background: #1a0303 !important; color: #ffffff !important; border: 2px solid #ff3333 !important; box-shadow: none !important; transform: none !important; }
+
+
+        /* ------------------------------------------------------------------------- */
+        /* --- 📊 ELITE INSTITUTIONAL PREMIUM TRADING INTERFACE SYSTEM ------------- */
+        /* ------------------------------------------------------------------------- */
+        .trading-terminal-container {
+            display: none; 
+            background: linear-gradient(180deg, #0e1118 0%, #05070a 100%);
+            border: 2px solid #b89030;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 440px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85), 0 0 40px rgba(184, 144, 48, 0.15);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: layoutHeavyDrift 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        .terminal-brand-title {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+        }
+        .terminal-gold-num {
+            background: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #85641a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 38px;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .terminal-main-txt {
+            background: linear-gradient(135deg, #ffffff 0%, #cdd2db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+        }
+        .terminal-sub-txt {
+            display: block;
+            font-size: 11px;
+            color: #d4af37;
+            letter-spacing: 5px;
+            margin-top: 6px;
+            font-weight: bold;
+        }
+
+        .terminal-intro-box {
+            color: #a0a5b0; font-size: 13px; line-height: 1.6; background: rgba(18, 22, 30, 0.7); padding: 15px; border-radius: 12px; border: 1px solid #1f2533; border-left: 3px solid #d4af37; text-align: left; margin-top: 20px; margin-bottom: 25px;
+        }
+
+        .input-structure-group { text-align: left; margin-bottom: 22px; }
+        .input-structure-group label { display: block; font-size: 11px; font-weight: 700; margin-bottom: 8px; color: #d4af37; text-transform: uppercase; letter-spacing: 1.5px; }
+        
+        .input-structure-group select {
+            width: 100%; background-color: #11141c; border: 1px solid #222938; color: #e1e4ea; padding: 15px; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; cursor: pointer;
+            appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%23d4af37' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat; background-position: right 14px center; transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .input-structure-group select:hover { border-color: #b89030; background-color: #151a24; }
+
+        /* ⚡ EXTREME ULTRA-HEAVY QUANTUM SIGNAL GENERATION MASTER TRIGGER BUTTON */
+        .btn-execution-master {
+            width: 100%; 
+            background: linear-gradient(135deg, #ffd700 0%, #b89030 40%, #85641a 75%, #4a370f 100%); 
+            background-size: 200% auto;
+            border: 2px solid #ffeaa7; 
+            color: #ffffff; 
+            padding: 22px; 
+            border-radius: 14px; 
+            font-size: 14px; 
+            font-weight: 900; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 2.5px; 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(184, 144, 48, 0.3), inset 0 2px 3px rgba(255,255,255,0.3); 
+            margin-top: 5px; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            animation: gradientShiftShimmer 4s ease infinite;
+        }
+        @keyframes gradientShiftShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn-execution-master:hover { 
+            transform: translateY(-3px) scale(1.01); 
+            box-shadow: 0 14px 35px rgba(184, 144, 48, 0.5), 0 0 25px rgba(255, 215, 0, 0.4); 
+            border-color: #ffffff;
+            filter: brightness(1.15); 
+        }
+        .btn-execution-master:active { 
+            transform: translateY(1px) scale(0.99); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        }
+        .btn-execution-master:disabled { 
+            background: #1b1e24 !important; 
+            border-color: #2b303b !important; 
+            color: #515766 !important; 
+            cursor: not-allowed; 
+            transform: none !important; 
+            box-shadow: none !important; 
+            text-shadow: none !important;
+            filter: none !important;
+        }
+
+        /* Realtime Output Windows */
+        .telemetry-display-box { 
+            margin-top: 30px; 
+            min-height: 180px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            border-top: 1px solid #1f2533; 
+            padding-top: 20px; 
+            position: relative;
+        }
+        
+        /* Fixed Display Block for Always-On Visual Space Injection */
+        .loader-wrapper-node { 
+            display: none; 
+            width: 100%; 
+            animation: quantumFluidIn 0.5s ease-out;
+        }
+        .loader-phrase-text { color: #d4af37; font-size: 12px; margin-bottom: 15px; letter-spacing: 1.5px; font-weight: 800; text-transform: uppercase; text-shadow: 0 0 10px rgba(212,175,55,0.3); }
+        .loader-progress-track { width: 100%; height: 8px; background-color: #090b0e; border-radius: 10px; overflow: hidden; border: 1px solid #222938; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .loader-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #85641a 0%, #d4af37 50%, #ffeaa7 100%); border-radius: 10px; box-shadow: 0 0 12px #d4af37; transition: width 1s linear; }
+
+        /* Signal Response Matrix Layouts */
+        .signal-reveal-block { display: none; width: 100%; animation: quantumFluidIn 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+        
+        .arrow-up-vector { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 52px solid #00ffaa; position: relative; filter: drop-shadow(0 0 25px rgba(0,255,170,0.8)); animation: microFloatMotive 2.8s infinite ease-in-out; }
+        .arrow-up-vector::after { content: ''; position: absolute; width: 30px; height: 38px; background-color: #00ffaa; top: 50px; left: -15px; }
+        
+        .arrow-down-vector { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-top: 52px solid #ff3366; position: relative; filter: drop-shadow(0 0 25px rgba(255,51,102,0.8)); margin-top: 35px; animation: microFloatMotive 2.8s infinite ease-in-out; }
+        .arrow-down-vector::after { content: ''; position: absolute; width: 30px; height: 38px; background-color: #ff3366; bottom: 50px; left: -15px; }
+
+        .signal-status-heading { font-size: 11px; color: #8a8f99; text-transform: uppercase; letter-spacing: 3px; margin-top: 55px; font-weight: bold; }
+        .signal-output-direction { font-size: 30px; font-weight: 900; margin-top: 8px; letter-spacing: 1.5px; }
+        .col-bullish { color: #00ffaa; text-shadow: 0 0 25px rgba(0,255,170,0.5); }
+        .col-bearish { color: #ff3366; text-shadow: 0 0 25px rgba(255,51,102,0.5); }
+        .badge-timeframe-lock { font-size: 11px; background-color: #11141c; border: 1px solid #222938; padding: 7px 18px; border-radius: 20px; color: #d4af37; margin-top: 15px; display: inline-block; font-weight: bold; letter-spacing: 0.5px; }
+
+        .terminal-footer-credits { margin-top: 30px; font-size: 11px; color: #525766; display: flex; flex-direction: column; gap: 5px; align-items: center; border-top: 1px solid #1f2533; padding-top: 20px; }
+
+        /* Animation Keyframe Sets */
+        @keyframes layoutHeavyDrift { 
+            0% { opacity: 0; transform: scale(0.94) translateY(45px); filter: blur(12px); } 
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } 
+        }
+        @keyframes microFloatMotive { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes quantumFluidIn { 0% { opacity: 0; transform: scale(0.88) translateY(20px); filter: blur(6px); } 100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- 💸 HIGH-FREQUENCY FLOATING VALUE DOLLAR ENGINE CONTAINER -->
+    <div class="ambient-asset-environment" id="liveDollarRainbox"></div>
+
+    <!-- 🔐 HORROR ACCREDITATION RESTRAINT GATES LOCK SCREEN -->
+    <div id="securityScreen">
+        <div class="horror-gatekeeper-container">
+            <div class="horror-brand-header">
+                <span class="horror-crimson-num">MALASHYA</span>
+                <span>TRADING BOT</span>
+                <span class="horror-subtext-line">RESTRICTED SECURITY VAULT</span>
+            </div>
+            
+            <div class="horror-desc-para">CRITICAL SECURITY NOTICE: System access requires valid signature keys mapped to active server terminal nodes.</div>
+            <div class="horror-key-box" id="deviceKeyDisplay" onclick="copyHardwareToken()">MAPPING INFRASTRUCTURE ENGINE...</div>
+            <div class="horror-status-label" id="statusLabel">LOCKED</div>
+            <div class="horror-desc-para" id="statusDesc" style="margin-top: 10px;">Authorization verification token mismatch. Transmission protocols paused.</div>
+
+            <button id="ownerBtn" class="btn-horror-action" onclick="fetchOverlordCredentials()">
+                ☠️ OBTAIN ACCESS PROTOCOL KEY
+            </button>
+        </div>
+    </div>
+
+
+    <!-- 📊 PREMIUM INSTITUTIONAL MASTER TERMINAL PANEL -->
+    <div class="trading-terminal-container" id="mainBot">
+        <header class="header">
+            <div class="terminal-brand-title">
+                <span class="terminal-gold-num">MALASHYA</span>
+                <span class="terminal-main-txt">TRADING BOT</span>
+                <span class="terminal-sub-txt">QUANTUM TELEMETRY CORE</span>
+            </div>
+            <div class="terminal-intro-box">
+                Institutional Terminal Active. Market data pipelines are fully structured to parse live orders and order book discrepancies seamlessly.
+            </div>
+        </header>
+
+        <!-- Configuration Settings Groups -->
+        <div class="input-structure-group">
+            <label>🏢 Host Broker Node</label>
+            <select id="broker">
+                <option value="QUOTEX">QUOTEX TRADING EXCHANGE</option>
+                <option value="IQ OPTION">IQ OPTION SPECIALIZED CORE</option>
+                <option value="POCKET OPTION">POCKET OPTION INSTANT NEXUS</option>
+                <option value="BINOMO">BINOMO INDUSTRIAL VIP</option>
+            </select>
+        </div>
+
+        <div class="input-structure-group">
+            <label>💱 Target Liquidity Asset Stream</label>
+            <select id="asset">
+                <option value="NZD/CAD (OTC)">NZD/CAD (OTC Dynamic)</option>
+                <option value="EUR/USD (OTC)">EUR/USD (OTC Dynamic)</option>
+                <option value="GBP/USD (OTC)">GBP/USD (OTC Dynamic)</option>
+                <option value="USD/INR (OTC)">USD/INR (OTC Dynamic)</option>
+                <option value="EUR/USD">EUR/USD (Live Global Spot)</option>
+                <option value="GBP/JPY">GBP/JPY (Live Global Spot)</option>
+                <option value="Crypto IDX">Crypto IDX Index Cluster</option>
+            </select>
+        </div>
+
+        <div class="input-structure-group">
+            <label>⏱️ Execution Horizon Limit</label>
+            <select id="timeframe">
+                <option value="5s">5 Seconds Scalping Matrix</option>
+                <option value="15s" selected>15 Seconds Standard Matrix</option>
+                <option value="30s">30 Seconds Medium Matrix</option>
+                <option value="1m">1 Minute Professional Horizon</option>
+                <option value="5m">5 Minutes Macro Trend Ledger</option>
+            </select>
+        </div>
+
+        <!-- Master Core Trigger Activation Button -->
+        <button class="btn-execution-master" id="generateBtn" onclick="executeQuantumAnalysis()">
+            ⚡ INITIATE HIGH-FREQUENCY COGNITIVE MATCH
+        </button>
+
+        <!-- Dynamic Results System Interface Array Components -->
+        <div class="telemetry-display-box" id="telemetryBox">
+            
+            <!-- Progress Calculation Matrix -->
+            <div class="loader-wrapper-node" id="loaderContainer">
+                <div class="loader-phrase-text" id="loadingText">INITIATING DATA VAULT CONNECTION...</div>
+                <div class="loader-progress-track">
+                    <div class="loader-progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+
+            <!-- Signal Output Dynamic Frame Injection Target -->
+            <div class="signal-reveal-block" id="signalOutput"></div>
+        </div>
+
+        <!-- Corporate Security Interface Structural Footers -->
+        <div class="terminal-footer-credits">
+            <div style="color: #b89030; font-weight: bold; letter-spacing: 0.5px;">🎯 ALGORITHMIC PRECISION LAYER FULLY OPERATIONAL</div>
+            <div>Secure System Socket Layer Channel Active</div>
+        </div>
+    </div>
+
+
+    <script>
+        // =============================================================
+        // 🔮 INITIALIZE FIREBASE & DISTRIBUTED DATA LEDGERS
+        // =============================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyCqfhMZACGdPHpcKLvIkMi7Zd7HVlXdhis",
+            databaseURL: "https://bit-65980-default-rtdb.firebaseio.com/",
+            projectId: "bit-65980",
+            storageBucket: "bit-65980.firebasestorage.app",
+            messagingSenderId: "891140054983",
+            appId: "1:891140054983:web:62807b434d3e77fc3783e2"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // 💸 HIGH INTERACTION ASSET SCALING FLOATING ENGINE
+        function bootDollarRainfallEngine() {
+            const containerNode = document.getElementById('liveDollarRainbox');
+            const densityCoefficient = 40; // Total count mapping constraints safely
+
+            for (let i = 0; i < densityCoefficient; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'cascading-dollar-element';
+                particle.innerText = '$';
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${6 + Math.random() * 8}s`;
+                particle.style.animationDelay = `${Math.random() * -10}s`;
+                particle.style.fontSize = `${18 + Math.random() * 22}px`;
+                containerNode.appendChild(particle);
+            }
+        }
+        bootDollarRainfallEngine();
+
+        // Hardware Trace Identification Protocols Mapping
+        let deviceUUID = localStorage.getItem('bot_device_uuid');
+        if (!deviceUUID) {
+            deviceUUID = 'MALASHYA-' + Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('bot_device_uuid', deviceUUID);
+        }
+        document.getElementById('deviceKeyDisplay').innerText = deviceUUID;
+
+        const userRef = database.ref('licensed_users/' + deviceUUID);
+        userRef.once('value', (snapshot) => {
+            if (!snapshot.exists()) {
+                userRef.set({ key: deviceUUID, status: 'pending', timestamp: Date.now() });
+            }
+        });
+
+        // System Network Authorization Observers
+        userRef.on('value', (snapshot) => {
+            const dataset = snapshot.val();
+            if (dataset) {
+                const label = document.getElementById('statusLabel');
+                const desc = document.getElementById('statusDesc');
+
+                if (dataset.status === 'approved') {
+                    label.innerText = "ACCESS GRANTED";
+                    label.style.color = "#00ffaa";
+                    label.style.textShadow = "0 0 25px #00ffaa";
+                    desc.innerText = "Authentication credentials matched. Transferring protocols to high-performance workspace nodes...";
+                    
+                    setTimeout(() => {
+                        const gateLockScreen = document.getElementById('securityScreen');
+                        gateLockScreen.style.opacity = '0';
+                        gateLockScreen.style.pointerEvents = 'none';
+                        setTimeout(() => {
+                            gateLockScreen.style.display = 'none';
+                            document.getElementById('mainBot').style.display = 'block';
+                        }, 1600);
+                    }, 1200);
+                } else if (dataset.status === 'blocked') {
+                    label.innerText = "EXILED TERMINAL";
+                    label.style.color = "#ff3366";
+                    desc.innerText = "This device instance identification sequence hash signature has been permanently barred.";
+                }
+            }
+        });
+
+        function copyHardwareToken() {
+            navigator.clipboard.writeText(deviceUUID);
+            alert("🩸 Footprint Token Copied! Send this hash key string to the control administrator framework.");
+        }
+
+        function fetchOverlordCredentials() {
+            const btn = document.getElementById('ownerBtn');
+            const rootAdminUser = "Adeeltrader8";
+            navigator.clipboard.writeText(rootAdminUser);
+            btn.innerText = `👁️ ADMIN DISPATCHED: ${rootAdminUser} (COPIED)`;
+            btn.classList.add('active-state');
+        }
+
+        // =============================================================
+        // 📊 HEAVY QUANTUM TELEMETRY DATA EVALUATION ENGINE
+        // =============================================================
+        function executeQuantumAnalysis() {
+            const hostBody = document.body;
+            const triggerBtn = document.getElementById('generateBtn');
+            const interfaceLoader = document.getElementById('loaderContainer');
+            const trackingProgress = document.getElementById('progressBar');
+            const dataOutput = document.getElementById('signalOutput');
+            const telemetryArea = document.getElementById('telemetryBox');
+            const horizonLockValue = document.getElementById('timeframe').value;
+
+            // Reset States
+            hostBody.classList.remove('flash-bullish-shocker', 'flash-bearish-shocker');
+            triggerBtn.disabled = true;
+            dataOutput.style.display = 'none';
+            
+            // Forced Loader Initialization View block
+            interfaceLoader.style.display = 'block';
+            trackingProgress.style.width = '0%';
+
+            // Smooth Auto-Scroll Anchor Execution to Loading Element focus point
+            setTimeout(() => {
+                telemetryArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 50);
+
+            let indexCountdown = 15;
+            let tickCounter = 0;
+            const logPhrases = [
+                "EVALUATING ORDER VOLUME IMBALANCES...",
+                "PULLING TICK DATA FROM INTERBANK MATRIX...",
+                "AGGREGATING RESIDUAL BLOCK ORDER MATRIX...",
+                "INTERPOLATING FIBONACCI MOMENTUM POOLS...",
+                "RESOLVING FINAL ARBITRAGE EQUILIBRIUM..."
+            ];
+
+            const internalTicker = setInterval(() => {
+                indexCountdown--;
+                tickCounter++;
+                const incrementalPct = (tickCounter / 15) * 100;
+                trackingProgress.style.width = `${incrementalPct}%`;
+
+                if (indexCountdown > 0) {
+                    let textArrayPointer = Math.floor(tickCounter / 3);
+                    document.getElementById('loadingText').innerText = `${logPhrases[textArrayPointer] || "PARSING SYSTEM TELEMETRY..."} (${indexCountdown}s)`;
+                } else {
+                    clearInterval(internalTicker);
+                }
+            }, 1000);
+
+            setTimeout(() => {
+                interfaceLoader.style.display = 'none';
+                const algorithmicWeightingResult = Math.random() < 0.5;
+                
+                if (algorithmicWeightingResult) {
+                    hostBody.classList.add('flash-bullish-shocker');
+                    dataOutput.innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="arrow-up-vector"></div>
+                            <div class="signal-status-heading">PROBABILITY DENSITY METRIC RESOLVED</div>
+                            <div class="signal-output-direction col-bullish">BUY / CALL 🟢</div>
+                            <div class="badge-timeframe-lock">Horizon Parameter: ${horizonLockValue}</div>
+                        </div>
+                    `;
+                } else {
+                    hostBody.classList.add('flash-bearish-shocker');
+                    dataOutput.innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="arrow-down-vector"></div>
+                            <div class="signal-status-heading" style="margin-top: 10px;">PROBABILITY DENSITY METRIC RESOLVED</div>
+                            <div class="signal-output-direction col-bearish">SELL / PUT 🔴</div>
+                            <div class="badge-timeframe-lock">Horizon Parameter: ${horizonLockValue}</div>
+                        </div>
+                    `;
+                }
+                dataOutput.style.display = 'block';
+                triggerBtn.disabled = false;
+                
+                // Reposition focus on final trade signal generation view
+                telemetryArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 15000);
+        }
+    </script>
+</body>
+</html>
